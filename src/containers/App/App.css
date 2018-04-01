@@ -1,0 +1,25 @@
+@import '~antd/dist/antd.css';
+
+html {
+    font-size: 12px;
+    font-family: -apple-system,PingFang SC,Hiragino Sans GB,Arial,Microsoft YaHei,Helvetica Neue,sans-serif;
+    text-rendering: optimizeLegibility;
+    background-color: #f4f5f5;
+    color: #333;
+    word-break: break-all;
+  }
+
+.SignFlowHomepage-qrImageHidden {
+    opacity: 0;
+    height: 0;
+    bottom: 0;
+}
+.SignFlowHomepage-qrImage {
+    position: absolute;
+    z-index: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    bottom: 0;
+    transition: opacity .3s,height .3s;
+}
