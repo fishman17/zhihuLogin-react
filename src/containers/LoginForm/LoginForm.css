@@ -1,0 +1,73 @@
+.title{
+    margin-top: 15px;
+    color: #0084ff;
+    font-size: 22px;
+}
+.ant-form-item-control{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid black;
+}
+.ant-form-item-control :last-child{
+    border:0;
+}
+.Button--plain{
+    padding: 0;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    background: none;
+    border: none;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+.SignFlow-supportedCountriesSelect{
+    display: inline-block;
+    margin-right: 30px;
+}
+.SignFlow-supportedCountriesSelect :after{
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 80px;
+    border-right: 1px solid #0084ff;
+}
+.ant-form-item{
+    margin-bottom: 0px;
+}
+
+.ant-input{
+    position: relative;
+    display: inline-block;
+    width: 220px;
+    padding: 0;
+    overflow: hidden;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    background: transparent;
+    border: none;
+    outline: none;
+    resize: none;
+}
+.ant-input:focus{
+    border-color: royalblue;
+}
+.ant-input:active{
+    border-color: royalblue;
+}
+
+/* //红色警告 */
+.ant-form-explain{   
+    position: absolute;
+    left: 0;
+    top: 45px;
+}
+.CountingDownButton{
+    float: right;
+}
+.Register-smsBackUp{
+    /* float: right; */
+}

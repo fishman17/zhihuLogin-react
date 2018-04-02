@@ -10,9 +10,9 @@ class LoginForm extends React.Component {
     //     e.preventDefault();
     // }
     state = {
-        isLogin: true,
+        isLogin: false,
         loginForPhone: false,
-        form: <div/>,
+        form: <div />,
     }
     handleSubmit = async (e) => {
         e.preventDefault();
@@ -36,7 +36,6 @@ class LoginForm extends React.Component {
                 //         // location.href = '/main';
                 //     }
                 // })
-
             })
         }
     }
@@ -89,63 +88,222 @@ class LoginForm extends React.Component {
         console.log(this.getStatus());
         switch (this.getStatus()) {
             case 'login':
-            return (
-                <Form onSubmit={this.handleSubmit} className="Register-content">
-                        <FormItem>
-                            <label>账号</label>
-                            {
-    
-                                getFieldDecorator('username', {
-                                    rules: [{
-                                        required: true,
-                                        message: "请您输入账号名称"
-                                    }]
-                                })(
-                                    <Input placeholder="请输入账号" />
-                                )
-                            }
-                        </FormItem>
-                        <FormItem>
-                            {
-                                getFieldDecorator('password', {
-                                    rules: [{ required: true, message: '请您输入账号密码' }]
-                                })(
-                                    <Input placeholder="请输入密码" />
-                                )
-                            }
-                        </FormItem>
-    
-                        {/* 判断是哪个form表单下面的东西 */}
-                        <FormItem>
-                            <p onClick={this.changeLoginForPhone.bind(this)}>123</p>
-                        </FormItem>
-                        <FormItem>
-                            <p>456</p>
-                        </FormItem>
-    
-    
-                        {/* 登录 or 注册 按钮 */}
-                        <FormItem>
-                            <Button type="primary"
-                                htmlType="submit"
-                                style={{ width: '100%' }}>
-                                Login
-                                </Button>
-                        </FormItem>
-                        <div className="SignContainer-switch">
-                          {this.state.isLogin === true? "没":"已"}有帐号？
-                          <span data-reactid="94" onClick={this.changeWays.bind(this)}>{this.state.isLogin === true? "注册":"登录"}</span>
-                        </div>
-                    </Form>
-            )
+                return (
+                    <div  className="SignContainer-wrapper">
+                        <Form onSubmit={this.handleSubmit} className="Register-content">
+                            <div className="title">
+                                {this.state.isLogin === true ? "登录" : "注册"}知乎，发现更大的世界
+                            </div>
+                            <FormItem>
+                                {
+
+                                    getFieldDecorator('username', {
+                                        rules: [{
+                                            required: true,
+                                            message: "请输入手机号或邮箱"
+                                        }]
+                                    })(
+                                        <Input placeholder="手机号或邮箱" />
+                                    )
+                                }
+                            </FormItem>
+                            <FormItem>
+                                {
+                                    getFieldDecorator('password', {
+                                        rules: [{ required: true, message: '请输入密码' }]
+                                    })(
+                                        <Input placeholder="密码" />
+                                    )
+                                }
+                            </FormItem>
+
+                            {/* 判断是哪个form表单下面的东西 */}
+                            <div className="Login-options">
+                                <button className="Button Login-switchType Button--plain" type="button" onClick={this.changeLoginForPhone.bind(this)}>
+                                    手机验证码登录</button>
+                                <button className="Button Login-cannotLogin Button--plain" type="button">
+                                    忘记密码？
+                                </button>
+                            </div>
+
+
+                            {/* 登录 or 注册 按钮 */}
+                            <FormItem>
+                                <Button type="primary"
+                                    htmlType="submit"
+                                    style={{ width: '100%' }}>
+                                    登录
+                                    </Button>
+                            </FormItem>
+                            <div className="Login-footer">
+                                <span className="Login-qrcode">
+                                    <button className="Button Button--plain" type="button">
+                                        二维码登录</button>
+                                </span>
+                                <span className="Login-footerSeparate Login-qrcodeSeparate"> · </span>
+                                <span className="Login-aboardPhone">
+                                    <button className="Button Button--plain" type="button">
+                                        海外手机登录</button>
+                                </span>
+                                <span className="Login-footerSeparate"> · </span>
+                                <span className="Login-socialLogin">
+                                    <button className="Button Login-socialButtonEntrance Button--plain" type="button">
+                                        社交帐号登录</button>
+
+                                </span>
+                                <div className="SignContainer-switch">
+                                    {this.state.isLogin === true ? "没" : "已"}有帐号？
+                                    <span data-reactid="94" onClick={this.changeWays.bind(this)}>{this.state.isLogin === true ? "注册" : "登录"}</span>
+                                </div>
+                            </div>
+                        </Form>
+                    </div>
+                )
             case 'register':
-            return (<div> register </div>);
+                return (
+                    <div  className="SignContainer-wrapper">
+                        <div className="title">
+                            {this.state.isLogin === true ? "登录" : "注册"}知乎，发现更大的世界
+                        </div>
+                        <Form onSubmit={this.handleSubmit}>
+                            <FormItem>
+                                <div className="Popover SignFlow-supportedCountriesSelect">
+                                    <button className="Button Select-button Select-plainButton Button--plain" role="combobox" aria-expanded="false" type="button" id="Popover-9351-92409-toggle" aria-haspopup="true" aria-owns="Popover-9351-92409-content">
+                                        中国 +86
+                                    </button>
+                                </div>
+                                {
+
+                                    getFieldDecorator('username', {
+                                        rules: [{
+                                            required: true,
+                                            message: "请输入手机号"
+                                        }]
+                                    })(
+                                        <Input placeholder="手机号" className="register-input"/>
+                                    )
+                                }
+                            </FormItem>
+                            <FormItem>
+                                {
+                                    getFieldDecorator('password', {
+                                        rules: [{ required: true, message: '请您输入账号密码' }]
+                                    })(
+                                        <Input placeholder="输入6位短信验证码" />
+                                    )
+                                }
+                                <button className="Button CountingDownButton SignFlow-smsInputButton Button--plain" type="button">获取短信验证码</button>
+                            </FormItem>
+                            <button className="Button CountingDownButton SignFlow-smsInputButton Button--plain" type="button">接受语音验证码</button>
+
+                            {/* 登录 or 注册 按钮 */}
+                            <FormItem>
+                                <Button type="primary"
+                                    htmlType="submit"
+                                    style={{ width: '100%' }}>
+                                    注册
+                                </Button>
+                            </FormItem>
+                            <div className="Register-footer">
+                                <span className="Register-declaration">注册即代表你同意
+                                <a href="https://www.zhihu.com/terms">
+                                        《知乎协议》
+                                </a>
+                                </span>
+                                <a className="Register-org" href="https://www.zhihu.com/org/signup">
+                                    注册机构号
+                                </a>
+                            </div>
+                            </Form>
+                        <div className="SignContainer-switch">
+                            {this.state.isLogin === true ? "没" : "已"}有帐号？
+                            <span data-reactid="94" onClick={this.changeWays.bind(this)}>{this.state.isLogin === true ? "注册" : "登录"}</span>
+                        </div>
+                    </div>
+                )
             case 'loginByPhone':
-            return (<div> loginByPhone </div>);
+                return (
+                    <div  className="SignContainer-wrapper">
+                        <Form onSubmit={this.handleSubmit} className="Register-content">
+                            <div className="title">
+                                {this.state.isLogin === true ? "登录" : "注册"}知乎，发现更大的世界
+                            </div>
+                            <div className="SignFlow-supportedCountriesSelectContainer">
+                                <div className="Popover SignFlow-supportedCountriesSelect">
+                                    <button className="Button Select-button Select-plainButton Button--plain" role="combobox" aria-expanded="false" type="button" id="Popover-9351-92409-toggle" aria-haspopup="true" aria-owns="Popover-9351-92409-content">
+                                        中国 +86
+        
+                                </button>
+                                </div>
+                            </div>
+                            <FormItem>
+                                {
+
+                                    getFieldDecorator('username', {
+                                        rules: [{
+                                            required: true,
+                                            message: "请输入手机号"
+                                        }]
+                                    })(
+                                        <Input placeholder="手机号" />
+                                    )
+                                }
+                            </FormItem>
+                            <FormItem>
+                                {
+                                    getFieldDecorator('password', {
+                                        rules: [{ required: true, message: '请您输入账号密码' }]
+                                    })(
+                                        <Input placeholder="输入6位短信验证码" />
+                                    )
+                                }
+                                <button className="Button CountingDownButton SignFlow-smsInputButton Button--plain" type="button">获取短信验证码</button>
+                            </FormItem>
+                            <div className="Register-smsBackUp">
+                            <span onClick={this.changeLoginForPhone.bind(this)}>密码登录(手机号或邮箱)</span>
+                            <span>接收语音验证码</span>
+                            </div>
+
+
+                            {/* 登录 or 注册 按钮 */}
+                            <FormItem>
+                                <Button type="primary"
+                                    htmlType="submit"
+                                    style={{ width: '100%' }}>
+                                    登录
+                                </Button>
+                            </FormItem>
+                            <div className="Login-footer">
+                                <span className="Login-qrcode">
+                                    <button className="Button Button--plain" type="button">
+                                        二维码登录
+                                    </button>
+                                </span>
+                                <span className="Login-footerSeparate Login-qrcodeSeparate"> · </span>
+                                <span className="Login-aboardPhone">
+                                    <button className="Button Button--plain" type="button">
+                                        海外手机登录
+                                    </button>
+                                </span>
+                                <span className="Login-footerSeparate"> · </span>
+                                <span className="Login-socialLogin">
+                                    <button className="Button Login-socialButtonEntrance Button--plain" type="button">
+                                        社交帐号登录
+                                    </button>
+
+                                </span>
+                                <div className="SignContainer-switch">
+                                    {this.state.isLogin === true ? "没" : "已"}有帐号？
+                                <span data-reactid="94" onClick={this.changeWays.bind(this)}>{this.state.isLogin === true ? "注册" : "登录"}</span>
+                                </div>
+                            </div>
+                        </Form>
+                    </div>
+                )
             default:
-            
+
         }
-       
+
     }
 }
 
