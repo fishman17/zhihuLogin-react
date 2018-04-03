@@ -2,31 +2,41 @@
 
 html {
     font-size: 12px;
-    font-family: -apple-system,PingFang SC,Hiragino Sans GB,Arial,Microsoft YaHei,Helvetica Neue,sans-serif;
+    font-family: -apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Microsoft YaHei,Source Han Sans SC,Noto Sans CJK SC,WenQuanYi Micro Hei,sans-serif;
     text-rendering: optimizeLegibility;
     color: #333;
     word-break: break-all;
   }
 
 body{
-    background-color: #f4f5f5b4;
+    background-color: #ecf2f9;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+.SignFlowHeader{
+  padding: 40px;
+  padding-bottom: 10px;
+  fill: #0084ff;
 }
 .Register-content{
     width: 432px;
     margin: 0 auto;
     padding: 0px;
     text-align: center;
-    background-color: #fff;
+}
+.signwrappr{
+  background-color: #fff;
+  box-shadow: 0 0 8px 0 rgba(26,26,26,.15);
 }
 .SignContainer-inner{
     padding: 40px;
     padding-top: 0px;
-    padding-bottom: 36px;
+    padding-bottom: 0px;
     margin: 0px;
+    position: relative;
+    z-index: 0;
 }
 
 
@@ -34,13 +44,49 @@ body{
     opacity: 0;
     height: 0;
     bottom: 0;
+    transition: opacity .3s, height .3s;
 }
 .SignFlowHomepage-qrImage {
     position: absolute;
-    z-index: 0;
+    z-index: 1;
     left: 0;
     right: 0;
     height: 100%;
     bottom: 0;
     transition: opacity .3s,height .3s;
+}
+.SignFlowHomepage-qrImage:before {
+  content: "";
+  position: absolute;
+  bottom: -7px;
+  -webkit-transform: translate(-50%) rotate(45deg);
+  transform: translate(-50%) rotate(45deg);
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 4px;
+}
+.SignFlowHomepage-qrImage div {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background-color: #fff;
+  background-size: 250px 250px;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-image: url(https://www.zhihu.com/static/revved/img/index/qr-code@2x.2607d448.png);
+  box-shadow: 0 0 8px 0 rgba(26,26,26,.15);
+  border-radius: 2px;
+}
+
+
+.SignFlowHomepage-downloadBtn {
+  cursor: pointer;
+  margin-top: 30px;
+  background: #8590a6;
+  border: none;
+  color: #fff;
+  width: 432px;
+  height: 42px;
 }

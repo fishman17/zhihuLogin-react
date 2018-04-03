@@ -1,12 +1,5 @@
 import Immutable from 'immutable';
-// 不可变  react state 改变会rerender
-// 用户做了改变。。 state没有变   如果其实什么都没变  就没必要rerender  性能问题
-// 浅拷贝 深拷贝  不可控
-// var obj = {}
-// var obj1 = obj
-// redux  使用immutable来实现不可变的state
-// 业界认为可变的state是万恶之源  
-// Map
+
 const initialState = Immutable.fromJS({
     newUser: null,
     error: null,

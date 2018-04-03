@@ -1,6 +1,3 @@
-// 模块化
-// reducer  
-// user.js  auth  article
 
 import { combineReducers } from 'redux'
 import {users} from './users'

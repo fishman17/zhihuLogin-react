@@ -1,12 +1,12 @@
 .title{
-    margin-top: 15px;
+    margin-bottom: 15px;
     color: #0084ff;
     font-size: 22px;
 }
 .ant-form-item-control{
-    margin-top: 20px;
+    /* margin-top: 5px; */
     margin-bottom: 20px;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #e8e8e8;
 }
 .ant-form-item-control :last-child{
     border:0;
@@ -22,17 +22,18 @@
     -webkit-appearance: none;
 }
 
-.SignFlow-supportedCountriesSelect{
+.SignFlow-supportedCountriesSelect-phone{
+    position: relative;
     display: inline-block;
     margin-right: 30px;
 }
-.SignFlow-supportedCountriesSelect :after{
+.SignFlow-supportedCountriesSelect-phone :after{
     content: '';
     position: absolute;
-    top: 0;
-    bottom: 0;
+    top: 15%;
+    bottom: 15%;
     left: 80px;
-    border-right: 1px solid #0084ff;
+    border-right: 1px solid #e8e8e8;
 }
 .ant-form-item{
     margin-bottom: 0px;
@@ -41,8 +42,8 @@
 .ant-input{
     position: relative;
     display: inline-block;
-    width: 220px;
     padding: 0;
+    margin-top: 3px;
     overflow: hidden;
     font-family: inherit;
     font-size: inherit;
@@ -58,16 +59,70 @@
 .ant-input:active{
     border-color: royalblue;
 }
-
 /* //红色警告 */
 .ant-form-explain{   
     position: absolute;
     left: 0;
-    top: 45px;
+    top: 38px;
 }
-.CountingDownButton{
+.text-button{
     float: right;
 }
+.voice-button{
+  margin-right: -252px;
+}
+
+.ant-form-item-children{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.ant-form-item-children input{
+  flex: 1;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+.Register-footer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.Login-footer span{
+  margin-right: 5px;
+}
+.ant-btn{
+  margin-top: 20px;
+} 
+.Login-options{
+  margin-top: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
 .Register-smsBackUp{
-    /* float: right; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.SignContainer-switch{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 432px;
+  margin-left: -40px;
+  margin-top: 40px;
+  background-color: #f6f6f6;
+  height: 58px;
+  border-top: 1px solid #ebebeb;
+  font-size: 16px;
 }
